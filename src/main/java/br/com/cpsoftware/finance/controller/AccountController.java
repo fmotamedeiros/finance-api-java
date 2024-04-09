@@ -1,6 +1,5 @@
 package br.com.cpsoftware.finance.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,11 +20,13 @@ import jakarta.validation.Valid;
 @RequestMapping("/accounts")
 public class AccountController {
 
-    @Autowired
-    private AccountRepository accountRepository;
+    private final AccountRepository accountRepository;
+    private final UserRepository userRepository;
 
-    @Autowired
-    private UserRepository userRepository;
+    public AccountController(AccountRepository accountRepository, UserRepository userRepository) {
+        this.accountRepository = accountRepository;
+        this.userRepository = userRepository;
+    }
 
     @PostMapping
     public ResponseEntity<Account> createAccount(@Valid @RequestBody Account account) {
