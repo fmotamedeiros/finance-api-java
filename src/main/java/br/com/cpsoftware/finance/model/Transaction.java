@@ -78,7 +78,7 @@ public class Transaction {
         return amount;
     }
 
-    public void setAmount(BigDecimal value) {
+    public void setAmount(BigDecimal amount) {
         this.amount = amount;
     }
 
