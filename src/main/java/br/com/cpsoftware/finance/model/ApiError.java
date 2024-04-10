@@ -1,7 +1,9 @@
 package br.com.cpsoftware.finance.model;
 
 import org.springframework.http.HttpStatusCode;
+import lombok.Data;
 
+@Data
 public class ApiError {
     private String message;
     private HttpStatusCode status;
@@ -11,19 +13,4 @@ public class ApiError {
         this.message = message;
     }
 
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public HttpStatusCode getStatus() {
-        return status;
-    }
-
-    public void setStatus(HttpStatusCode status) {
-        this.status = status;
-    }
 }
